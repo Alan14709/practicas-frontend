@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->"
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Frontend Mentor | Blog preview card</title>
+
+  <style>
+    *{
+      box-sizing: border-box;
+      margin: 0;
+    }
+@font-face {
+  font-family: 'Figtree';
+  src: url('./assets/fonts/Figtree-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+}
+body {
+  font-family: 'Figtree', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  background-color: hsl(47, 88%, 63%);
+}
+
+    .attribution { font-size: 12px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    .card{
+      max-width: 300px;
+      background-color: hsl(0, 0%, 100%);
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    color: hsl(0, 0%, 7%);
+    gap: 10px;
+    border: 1px solid  hsl(0, 0%, 7%);
+    transition: transform 1s ease;
+    }
+    footer{
+      position: absolute;
+      bottom: 10px;
+    }
+    .main-image{
+      border-radius: 20px;
+     max-width: 300px; 
+     max-height: 250px;
+    }
+    .Learning{
+      background-color: hsl(47, 88%, 63%);
+      color: #222;
+      border-radius: 5px;
+      padding: 5px;
+      align-self: flex-start;
+      font-size: 11px;
+    }
+    .published{
+      align-self: flex-start;
+      font-size: 11px;
+    }
+    h1{
+      font-size: 21px;
+      align-self: flex-start;
+      transition: color 0.5s;
+    }
+    h1:hover{
+color:hsl(47, 88%, 63%);
+cursor: pointer;
+    }
+.avatar{
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+}
+.perfil{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.card::after{
+  content: "";
+  width: 300px;
+  height: 470px;
+  background-color: #111;
+  position: absolute;
+  border-radius: 20px;
+  z-index: -10;
+  transform: translate(-5px) translateY(-5px);
+
+}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="./assets/images/illustration-article.svg" alt="artículo" class="main-image">
+    <p class="Learning">Learning</p>
+    <p class="published">published 19 jul 2025</p>
+    <h1>HTML & CSS Foundation</h1>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium quia blanditiis eligendi reprehenderit magni quisquam quo. Ab quae sit, dolor obcaecati sed iure hic! Voluptatum nam magnam labore nihil earum.</p>
+    <div class="perfil">
+    <img src="./assets/images/image-avatar.webp" alt="avatar" class="avatar">
+    <p>Greg Hooper</p>
+    </div>
+  </div>
+  <footer>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Alan Lemus</a>.
+    </div>
+  </footer>
+</body>
+</html>
