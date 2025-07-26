@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <title>Frontend Mentor | [Challenge Name Here]</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    * {
+      font-family: 'Rubik', sans-serif;
+    }
+    
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+
+    body{
+      width: 100vw;
+      background-color:hsl(270, 20%, 96%);
+      margin: 0;
+      font-size: 12px;
+      font-family: 'Rubik', sans-serif;
+      gap: 20px;
+      height: 125vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .figura-morada{
+      background: linear-gradient(to bottom,hsl(264, 100%, 61%),hsl(293, 100%, 63%));
+      left: 0;
+      top: 0;
+      width: 55%;
+      height: 70%;
+      position: absolute;
+      margin: 0;
+      border-radius: 0 0 70% 0;
+      z-index: -10;
+    }
+    .telefono{
+      max-width: 280px;
+      max-height: 575px;
+      min-height: 575px;
+      border: 10px solid hsl(0, 100%, 100%);
+      border-radius: 50px;
+      position: relative;
+    }
+    .telefono__prefil{
+            background: linear-gradient(to top,hsl(264, 100%, 61%),hsl(293, 100%, 63%));
+            height: 8%;
+            color: hsl(0, 100%, 100%);
+            font-size: 0.8em;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            gap: 5px;
+            border-radius: 40px 50px 10px 10px;
+
+    }
+    .telefono__prefil__avatar{
+      height: 30px;
+      border-radius: 50%;
+      border: 2px solid hsl(0, 100%, 100%);
+      margin-left: 15px;
+    }
+    .telefono__prefil__secondtext{
+      font-size:1em;
+      margin: 0;
+      padding: 0;
+      color: hsl(206, 6%, 79%);
+    }
+    .telefono__prefil__text > p{
+      margin: 0;
+      padding: 0;
+    }
+    .telefono__prefil::before{
+      content: "";
+      background-color: hsl(0, 100%, 100%);
+      width: 55%;
+      height: 15px;
+      position: absolute;
+      top: 0;
+      left: 22%;
+      border-radius: 0px 0px 10px 10px;
+    }
+    .conversacion{
+      background-color: hsl(270, 20%, 96%);
+      display: flex;
+      flex-direction: column;
+      border-radius: 0 0 30px 30px;
+    }
+    .mensaje-morado{
+      width: 50%;
+        background-color: hsl(276, 100%, 81%) ;
+        border-radius: 10px 10px 10px 0;
+        padding: 8px 12px;
+        margin: 5px;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 400;
+        color: hsl(271, 15%, 43%);
+      }
+      .mensaje-right{
+        width: 50%;
+        align-self: flex-end;
+        background-color:hsl(0, 100%, 100%) ;
+        color:  hsl(270, 7%, 64%);
+        padding: 8px 12px;
+        border-radius: 10px 10px 0px 10px;
+        margin: 5px;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 400;
+      }
+      .conversacion__images{
+        width: 40px;
+        border-radius: 10px;
+      }
+      .conversacion__container{
+        align-self: flex-end;
+        margin: 5px;
+      }
+      .name{
+            font-size: 1.3em;
+            font-weight: 500;
+            font-family: 'Rubik', sans-serif;
+      }
+      .price{
+       width: 50%;
+         background: linear-gradient(to top,hsl(264, 100%, 61%),hsl(293, 100%, 63%));
+        border-radius: 10px 10px 10px 0;
+        margin: 5px;
+        color: hsl(0, 100%, 100%);
+        padding: 10px;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 400;
+      }
+      input[type="radio"]{
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: 15px;
+        height: 15px;
+        border: 2px solid hsl(289, 100%, 72%);
+        border-radius: 50%;
+        background-color: transparent;
+        margin-right: 8px;
+        cursor: pointer;
+        position: relative;
+      }
+      
+      input[type="radio"]:checked {
+        background-color: hsl(289, 100%, 72%);
+        border-color: hsl(289, 100%, 72%);
+      }
+      
+      input[type="radio"]:checked::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: hsl(0, 100%, 100%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      h1{
+        font-size: 2.5em;
+        color: hsl(271, 36%, 24%);
+        font-family: 'Rubik', sans-serif;
+        font-weight: 500;
+        margin: 20px 0 10px 0;
+      }
+      
+      .descripcion{
+        color: hsl(270, 7%, 64%);
+        font-family: 'Rubik', sans-serif;
+        font-weight: 400;
+        line-height: 1.6;
+        max-width: 500px;
+        text-align: center;
+        margin: 0 20px;
+      }
+      
+      .conversacion__teclado{
+        font-family: 'Rubik', sans-serif;
+        color: hsl(206, 6%, 79%);
+        font-weight: 400;
+        background-color: hsl(0, 100%, 100%);
+        width: 80%;
+        border-radius: 25px;
+        align-self: center;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      footer{
+        padding: 10px;
+      }
+      .majesticons--arrow-right {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m19 12l-6-6m6 6l-6 6m6-6H5'/%3E%3C/svg%3E");
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;;
+  background-color: hsl(271, 36%, 24%);
+}
+.main-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.mensaje-morado, .mensaje-right {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mensaje-morado:hover, .mensaje-right:hover {
+  transform: translateY(-3px);
+  cursor: pointer;
+}
+
+@media  (width > 700px){
+   body{
+    flex-direction: row;
+    height: 100vh;
+
+   }
+
+   footer{
+    position: absolute;
+    bottom: 0;
+   }
+   .main-container p{
+    font-size: 1.2em;
+   }
+   .figura-morada{
+    width: 40%;
+    height: 70%;
+    border-radius: 0 0 50% 50%;
+   }
+}
+
+  </style>
+</head>
+<body>
+<div class="figura-morada"></div>
+<div class="telefono">
+  <div class="telefono__prefil">
+    <img src="./images/avatar.jpg" alt="avatar" class="telefono__prefil__avatar">
+     <div class="telefono__prefil__text">
+ <p class="name">Samuel Green</p>
+  <p class="telefono__prefil__secondtext">Available to Walk</p>
+  </div>
+  </div>
+
+  <div class="conversacion">
+  <p class="mensaje-morado">That sounds great. I’d be happy with that.</p>
+
+
+  <p class="mensaje-morado">Could you send over some pictures of your dog, please?</p>
+
+  <div class="conversacion__container"> <img src="./images/dog-image-1.jpg" alt="" class="conversacion__images"> <img src="./images/dog-image-2.jpg" alt="" class="conversacion__images"> <img src="./images/dog-image-3.jpg" alt="" class="conversacion__images"></div>
+
+  <p class="mensaje-right">Here are a few pictures. She’s a happy girl!</p>
+
+
+  <p class="mensaje-right">Can you make it?</p>
+
+
+  <p class="mensaje-morado">She looks so happy! The time we discussed works. How long shall I take her out for?</p>
+
+
+  <p class="price"> <input type="radio"> minute walk    $29</p>
+
+
+  <p class="price"><input type="radio"> 1 hour walk    $49</p>
+
+  <p class="conversacion__teclado">Type a message… <span class="majesticons--arrow-right"></span></p>
+</div>
+
+  </div>
+<div class="main-container">
+  <h1>Simple booking</h1>
+
+  <p class="descripcion">Stay in touch with our dog walkers through the chat interface. This makes it easy to 
+  discuss arrangements and make bookings. Once the walk has been completed you can rate 
+  your walker and book again all through the chat.</p>
+  </div>
+  <footer>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Alan lemus</a>.
+  </div>
+  </footer>
+</body>
+</html>
