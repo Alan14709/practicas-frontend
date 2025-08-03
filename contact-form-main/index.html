@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Contact form</title>
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+
+    body{
+      background-color: hsl(148, 38%, 91%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    form{
+      display: grid;
+      width: 80%;
+      max-width: 600px;
+      background-color: hsl(0, 0%, 100%);
+      padding: 30px;
+      border-radius: 20px;
+      gap: 15px;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: 
+        "title title"
+        "firstname lastname"
+        "email email"
+        "query-type query-type"
+        "message message"
+        "consent consent"
+        "submit submit"
+        "success success";
+    }
+    
+    h1 { grid-area: title; }
+    .person { grid-area: firstname; }
+    .last-name-div { grid-area: lastname; }
+    .email-section { grid-area: email; }
+    fieldset { grid-area: query-type; border: none;}
+    .message-section { grid-area: message; }
+    .consent-section { 
+      grid-area: consent;  
+      display: flex; 
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 14px;
+    }
+    button[type="submit"] { grid-area: submit; }
+    .success-message { grid-area: success; }
+    /* Remove duplicate selectors and merge styles */
+    .error {
+      display: none;
+      color: hsl(0, 66%, 54%);
+      font-size: 14px;
+      margin-top: 5px;
+    }
+    input{
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid hsl(186, 15%, 59%);
+      border-radius: 5px;
+    }
+    input:focus{
+      outline: 2px solid hsl(169, 82%, 27%);
+    }
+    input:invalid + span{
+      color: rgb(221, 11, 11);
+      display: inline;
+    }
+       input:invalid,textarea:invalid{
+      border-color: rgb(221, 11, 11);
+      display: inline;
+    }
+    .general,.support{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-align: left;
+      width: 50%;
+      border: 2px solid hsl(186, 15%, 59%);
+      border-radius: 10px;
+      padding: 12px;
+      cursor: pointer;
+      transition: border-color 0.3s ease;
+    }
+    
+    .general:hover,.support:hover{
+      border-color: hsl(169, 82%, 27%);
+    }
+    
+    .general:has(input:checked),.support:has(input:checked){
+      border-color: hsl(169, 82%, 27%);
+      background-color: hsl(148, 38%, 91%);
+    }
+    .radio-group{
+      display: flex;
+      gap: 10px;
+      width: 100%;
+    }
+    textarea{
+      width: 100%;
+      border: 1px solid hsl(186, 15%, 59%);
+      max-width: 100%;
+      height: 100px;
+      border-radius: 10px;
+      resize: none;
+    }
+    input[type="checkbox"]{
+      appearance: none;
+      margin: 0 8px 0 0;
+      width: 18px;
+      height: 18px;
+      border: 2px solid hsl(186, 15%, 59%);
+      border-radius: 3px;
+      background-color: white;
+      cursor: pointer;
+      position: relative;
+      flex-shrink: 0;
+    }
+    
+    input[type="checkbox"]:checked {
+      background-color: hsl(169, 82%, 27%);
+      border-color: hsl(169, 82%, 27%);
+    }
+    input:invalid:focus{
+      outline: none;
+    }
+    
+    input[type="checkbox"]:checked::after {
+      content: '✓';
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    input[type="checkbox"]:focus {
+      outline: 2px solid hsl(169, 82%, 27%);
+      outline-offset: 2px;
+    }
+    
+    input[type="radio"]{
+      appearance: none;
+      margin: 0;
+      width: 18px;
+      height: 18px;
+      border: 2px solid hsl(186, 15%, 59%);
+      border-radius: 50%;
+      background-color: white;
+      cursor: pointer;
+      position: relative;
+      flex-shrink: 0;
+    }
+    
+    input[type="radio"]:checked {
+      background-color: hsl(169, 82%, 27%);
+      border-color: hsl(169, 82%, 27%);
+    }
+    
+    input[type="radio"]:checked::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color:hsl(0, 0%, 100%);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    input[type="radio"]:focus {
+      outline: 2px solid hsl(169, 82%, 27%);
+      outline-offset: 2px;
+    }
+    button{
+      justify-self: center;
+      width: 90%;
+      padding: 10px;
+      border: none;
+      background-color: hsl(169, 82%, 27%);
+      color: hsl(0, 0%, 100%);
+      cursor: pointer;
+    }
+    button:hover{
+      opacity: 0.7;
+    }
+    button:active{
+      transform: scale(0.9);
+    }
+
+  </style>
+</head>
+<body>
+<form>
+  <h1>Contact Us</h1>
+  
+  <div class="person">
+    <label for="first-name">First Name</label>
+    <input type="text" id="first-name" name="first-name" required value="First Name">
+    <span class="error">This field is required</span>
+  </div>
+  
+  <div class="last-name-div">
+    <label for="last-name">Last Name</label>
+    <input type="text" id="last-name" name="last-name" required value="last Name">
+    <span class="error">This field is required</span>
+  </div>
+  
+  <div class="email-section">
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" required value="example@gmail.com">
+    <span class="error">Please enter a valid email address</span>
+  </div>
+
+  <fieldset>
+    <legend>Query Type</legend>
+    <div class="radio-group">
+      <div class="general">
+        <input type="radio" name="query-type" value="general" required id="general">
+        <label class="radio-option" for="general">General Enquiry</label>
+      </div>
+      <div class="support">
+        <input type="radio" name="query-type" value="support" required id="support">
+        <label class="radio-option" for="support">Support Request</label>
+      </div>
+    </div>
+    <span class="error">Please select a query type</span>
+  </fieldset>
+
+  <div class="message-section">
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="4" required placeholder="your message"></textarea>
+    <span class="error">This field is required</span>
+  </div>
+
+  <div class="consent-section">
+    <input type="checkbox" name="consent" required id="contacted" checked>
+    <label class="checkbox-label" for="contacted">I consent to being contacted by the team</label>
+    <span class="error">To submit this form, please consent to being contacted</span>
+  </div>
+
+  <button type="submit" onclick="alert(`Message Sent!\nThanks for completing the form. We'll be in touch soon`)">Submit</button>
+
+  <div class="success-message" style="display:none;">
+    <h2>Message Sent!</h2>
+    <p>Thanks for completing the form. We'll be in touch soon!</p>
+  </div>
+</form>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+</body>
+</html>

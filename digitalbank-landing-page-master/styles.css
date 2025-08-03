@@ -1,0 +1,315 @@
+ /* ==========================================
+   ESTILOS GLOBALES Y RESET
+   ========================================== */
+*{
+    font-family: 'Public Sans', sans-serif;
+}
+
+body{
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+p{
+    color: hsl(233, 8%, 62%);
+    text-align: center;
+}
+
+a{
+    font-size: 1.1em;
+    text-decoration: none;
+    color: hsl(233, 26%, 24%);
+}
+
+h1{
+    text-align: center;
+    margin-top: 100px;
+}
+
+/* ==========================================
+   CLASES UTILITARIAS
+   ========================================== */
+.flex{
+    display: flex;
+}
+
+/* ==========================================
+   BARRA DE NAVEGACIÓN
+   ========================================== */
+.barra-navegacion{
+    max-height: 70px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    max-width: 90vw;
+    box-sizing: border-box;
+    flex-direction: row;
+}
+
+.barra-navegacion__lista{
+    gap: 15px;
+}
+
+.barra-navegacion__item{
+    list-style: none;
+    height: 100%;
+    border-bottom:3px solid hsl(0, 100%, 100%);
+    transition: border-bottom 0.6s ease;
+}
+
+.barra-navegacion__item:hover{
+    border-bottom-color: hsl(136, 64%, 51%);
+}
+
+/* ==========================================
+   BOTONES
+   ========================================== */
+.button-request{
+    background: linear-gradient( hsl(136, 64%, 51%),hsl(192, 69%, 51%));
+    border: none;
+    height: 35px;
+    padding: 0 10px;
+    border-radius: 20px;
+    color: hsl(0, 100%, 100%);
+    font-weight: bold;
+}
+
+.button-request:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.button-request:active{
+    transform: scale(0.9);
+}
+
+/* ==========================================
+   BANNER PRINCIPAL
+   ========================================== */
+.banner-principal{
+    position: relative;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.banner-principal__texto{
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 350px;
+}
+
+.imagen-promocional{
+    width: 80vw;
+    position: absolute;
+    height: 95%;
+    object-fit: contain;
+}
+
+.imagen-de-banner-principal{
+    width: 800px;
+    position: absolute;
+    z-index: -10;
+}
+
+/* ==========================================
+   SECCIÓN "CHOOSE BANK"
+   ========================================== */
+.chose-bank{
+    max-width: 1500px;
+    width: 90%;
+    background-color: hsl(0, 0%, 98%);
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-template-rows: repeat(auto-fit,minmax(300px,1fr));
+    align-content: center;
+    grid-auto-flow: row;
+    gap: 20px;
+}
+
+.subtitulos{
+    color: hsl(233, 26%, 24%);
+    width: 50%;
+    text-align: left;
+    padding: 5px;
+    font-size: 18px;
+    margin: 5px;
+}
+
+.subtitulos-principal{
+    font-size: 1.5em;
+    text-align: center;
+}
+.chose-bank-section{
+    width: 100vw;
+    background-color: hsl(0, 0%, 98%);
+    text-align: center;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.chose-bank-section__text{
+display: flex;
+flex-direction: column;
+}
+
+
+
+/* ==========================================
+   SECCIÓN LATEST ARTICLES
+   ========================================== */
+.latest-articles{
+    max-width: 300px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px 20px hsl(233, 26%, 24%);
+    padding: 10px;
+}
+.latest-article__img{
+    width: 100%;
+    border-radius: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.latest-article__img + p{
+    font-size: 11px;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.latest-article__desc{
+    width: 80%;
+    margin-left: 25px;
+}
+.articles-grid{
+    max-width: 70vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-template-rows: repeat(auto-fit,minmax(300px,1fr));
+}
+.center{
+    align-items: center;
+    justify-content: center;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+footer{
+    background-color: hsl(233, 26%, 24%);
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer__links{
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer__links li a{
+    color: hsl(220, 16%, 96%);
+    font-size: 14px;
+    text-align: center;
+}
+
+.footer__links li a:hover{
+    color: hsl(136, 64%, 51%);
+}
+
+.footer__links li {
+    list-style: none;
+}
+
+.footer__social-icons{
+    gap: 15px;
+    margin: 10px;
+}
+
+.logo-light{
+    margin: 40px;
+    width: 200px;
+}
+
+/* ==========================================
+   ATTRIBUTION (Footer del desafío)
+   ========================================== */
+.attribution { 
+    font-size: 11px; 
+    text-align: center; 
+}
+
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
+
+/* ==========================================
+   MEDIA QUERIES - DESKTOP
+   ========================================== */
+@media screen and (width > 700px){
+    /* Banner Principal Desktop */
+    .imagen-promocional{
+        max-width: 800px;
+        width: 45vw;
+        right: 0;
+    }
+    
+    .imagen-de-banner-principal{
+        max-width: 1280px;
+        width: 70vw;
+        right:0;
+    }
+    
+    .banner-principal__texto{
+        width: 40%;
+        margin-top: 0;
+        position: absolute;
+        left: 3%;
+    }
+    
+    .banner-principal{
+        flex-direction: row;
+    }
+    
+    /* Choose Bank Desktop */
+    .chose-bank{
+        width: 90%;
+    }
+    footer{
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 20px ;
+        padding: 50px;
+    }
+    .footer__links{
+        flex-direction: row;
+    }
+    .articles-grid{
+          grid-auto-flow: row;
+    }
+}
+
+/* ==========================================
+   MEDIA QUERIES - MÓVIL
+   ========================================== */
+@media screen and (width < 700px){
+    /* Navegación Móvil */
+    .barra-navegacion__lista{
+        display: none;
+    }
+    
+    /* Banner Móvil */
+    .imagen-de-banner-principal{
+        top: -50px;
+        left: -100px;
+    }
+    
+    .imagen-promocional{
+        display: none;
+    }
+}
